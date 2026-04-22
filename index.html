@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -251,7 +251,7 @@
 <body>
     <canvas id="heartCanvas"></canvas>
 
-    <audio id="bg-audio" loop preload="auto">
+    <audio id="bg-audio" loop preload="metadata">
         <source src="music/yasalam.mp3" type="audio/mpeg">
         <source src="music/yasalam.wav" type="audio/wav">
         <source src="music/yasalam.ogg" type="audio/ogg">
@@ -399,9 +399,10 @@
         userImages.forEach((imgSrc, index) => {
             const frame = document.createElement('div');
             frame.className = 'photo-frame';
+            // تم التعديل هنا: إضافة loading="lazy" لوسم الصورة
             frame.innerHTML = `
                 <div class="img-container">
-                    <img src="${imgSrc}" alt="Memory ${index + 1}" onerror="this.src='https://via.placeholder.com/500/ffafbd/c31432?text=Fady+❤️+Manola'">
+                    <img src="${imgSrc}" loading="lazy" alt="Memory ${index + 1}" onerror="this.src='https://via.placeholder.com/500/ffafbd/c31432?text=Fady+❤️+Manola'">
                 </div>
                 <div class="love-note">${messages[index] || "بحبك يا مانولا ❤️"}</div>
             `;
